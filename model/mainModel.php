@@ -11,7 +11,7 @@ function registerNewUser($lastname,$firstname,$username,$passuser,$question,$rep
       'nom'=> $lastname,
       'prenom'=> $firstname,
       'username'=> $username,
-      'passuser'=> $passuser,
+      'passuser'=> md5($passuser),
       'question'=> $question,
       'reponse'=>  $reponse
    )); // <-
@@ -19,11 +19,12 @@ function registerNewUser($lastname,$firstname,$username,$passuser,$question,$rep
 }/*dd($_POST); */
 
 
-function getUserLogin($username, $passuser)
+/* fonction ci-dessous : ancien code */
+/*function getUserLogin($username, $passuser)
 {
    $dbco=dbConnect();
    $username=htmlspecialchars($_POST["username"]);
-   $passuser=md5($_POST["passuser"]);
+   $passuser=($_POST["passuser"]);
    $valider=$_POST["Valider"];
    $erreur="";
     if(isset($valider)){
@@ -40,7 +41,37 @@ function getUserLogin($username, $passuser)
        else
           $erreur="Mauvais nom d'utilisateur ou mot de passe!";
     }
+}*/
+
+function getUserLogin($username, $passuser){
+
+   $username=htmlspecialchars($_POST["username"]);
+   $passuser=htmlspecialchars($_POST["passuser"]);
+   $passuser=md5($_POST["passuser"]);
+   $seconnecter=$_POST["SeConnecter"];
+   $erreur="";
+
+   $dbco=dbConnect();
+
+    if(isset($SeConnecter)){
+       include_once ("connexiondb.php");
+       $sel=$dbco->prepare("SELECT * from account where username=? and passuser=? limit 1");
+       $sel->execute(array("username" => $username, "passuser" => $passuser));
+       $tab=$sel->fetchAll();
+       if(count($tab)>0){
+          $_SESSION["prenomNom"]=ucfirst(strtolower($tab[0]["prenom"])).
+          " ".strtoupper($tab[0]["nom"]);
+          $_SESSION["connect"]= $headerIn;
+          header("location:home.php"); // à mettre dans le Header pour affichage sur toutes les pages par le template
+       }
+       else
+          $erreur="Mauvais nom d'utilisateur ou mot de passe!";
+    }
+
+
 }
+
+
 
 
 function getBillets()

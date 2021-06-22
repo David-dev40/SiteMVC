@@ -15,7 +15,7 @@ ob_start();
       <form method="post" action="index.php?action=login">
          <input type="text" name="username" placeholder="Nom d'utilisateur" /><br />
          <input type="password" name="passuser" placeholder="Mot de passe" /><br />
-         <input type="submit" name="Valider" value="Valider" />
+         <input type="submit" name="SeConnecter" value="Se connecter" />
       </form>
       <p>Pas encore de compte ? <a href="index.php?action=pageRegister">Inscrivez-vous !</a></p>
       <p>Mot de passe oublié ? <a href="index.php?action=forgetpass">Créez un nouveau mot de passe</a></p> <!-- // forgetpass A CODER -->

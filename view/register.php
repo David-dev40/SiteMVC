@@ -10,9 +10,9 @@ require_once('controller/mainController.php');
 <main>
     <section class="form">
         <h1>Inscription</h1>
-        <form action="index.php?action=registerTest" method="POST" >
+        <form action="index.php?action=register" method="POST" >
         
-            <p><input type="hidden" name="registerTest" value="registerTest" /></p>
+            <p><input type="hidden" name="register" value="register" /></p>
 
             <p><label for="nom">Nom : </br></br></label><input type="text" name="nom" /></p>
 
@@ -28,7 +28,7 @@ require_once('controller/mainController.php');
 
             <p><label for="reponse">Réponse à la question secrète : </br></br></label><input type="text" name="reponse" /></p>
 
-            <p><input type="submit" value="Validez"/></p>
+            <input type="submit" name="SEnregistrer" value="S'enregistrer" />
             
         </form>
     </section>
