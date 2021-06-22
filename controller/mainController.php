@@ -144,3 +144,12 @@ function forgetpass()
 {
     require_once __DIR__.'/../view/forgetpass.php';
 }
+
+
+
+
+
+
+
+
+

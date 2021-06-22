@@ -34,7 +34,7 @@ ob_start();
 
 
 <?php
-require 'login.php';
+header('login.php');
 $pageContent = ob_get_clean();
 require_once __DIR__.'/../view/template.php';
 ?>
