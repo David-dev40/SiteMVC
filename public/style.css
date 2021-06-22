@@ -11,16 +11,13 @@
     display: block;
     height: 140px;
     margin-left: 50px;
-
 }
 
-/* header Form 
-#header_form #logoGBAF{
+/*#header_form #logoGBAF{
     height: 200px;
     display: block;
     margin: auto;
     border-bottom: solid black 4px; 
-    
 } */
 
 /* utilisateur header connect */
@@ -347,10 +344,10 @@ form {
     flex-direction: column;
     align-items: center;
 }
-#header_form img {
+#header_form #logoGBAF {
     height: 200px;
     margin-bottom: -20px;
-}
+} 
 .form label {
     font-weight: bold;
 }

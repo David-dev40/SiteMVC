@@ -29,13 +29,9 @@ ob_start();
         </form>
     </section>
 </main>
+-->
 
 
-
-<?php
-$pageContent = ob_get_clean();
-require_once __DIR__.'/../view/template.php';
-?>
 
 
 
@@ -75,9 +71,11 @@ require_once __DIR__.'/../view/template.php';
          }   
       }
    }
-
 ?>
-
+<?php
+$pageContent = ob_get_clean();
+require_once __DIR__.'/../view/template.php';
+?>
 
 
 

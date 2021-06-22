@@ -19,7 +19,7 @@ require('controller/mainController.php');
 //session_start();
 
 
-$action = isset($_GET['action']) ? $_GET['action'] :'pageLogin'; 
+$action = isset($_GET['action']) ? $_GET['action'] :'login'; 
 
 if(function_exists($action)) {
     $action();
@@ -33,6 +33,10 @@ die;
 
 $pageContent = ob_get_clean();
 
+
+//SI affichage page KO, peut-être tenter redirection
+//header('Location: view/login.php');
+exit();
 
 
 require_once __DIR__.'/SiteMVC/view/template.php'; 

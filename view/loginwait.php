@@ -8,7 +8,7 @@ ob_start();
 <main>
     <section class="form">
         <h1>Connectez-vous</h1>
-        <form method="post" action="index.php?action=connexion">
+        <form method="post" action="">
 
             <p><label for="Username">Nom d'utilisateur : </label><br /></br><input type="text" name="Username" id="Username" value="<?= isset($_POST['Username']) ? $_POST['Username'] : '' ?>" required /></p>
 

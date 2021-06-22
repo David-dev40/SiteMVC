@@ -2,6 +2,23 @@
 $pageTitle = $actor['acteur'];
 $header = 'connect';
 ob_start();
+require('mainController.php');
+if (isset($_GET['action'])) {
+    if ($_GET['action'] == 'listPosts') {
+        listPosts();
+    }
+    elseif ($_GET['action'] == 'post') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            post();
+        }
+        else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
+    }
+}
+else {
+    listPosts();
+}
 ?>
 
 <main>
@@ -76,6 +93,7 @@ ob_start();
 </main>
 
 <?php
+
 $pageContent = ob_get_clean();
 require_once __DIR__.'/../view/template.php'
 ?>

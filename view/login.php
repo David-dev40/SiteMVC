@@ -2,7 +2,7 @@
 $pageTitle = 'Connexion à GBAF';
 $header = 'noconnect'; 
 //dd('test');
-//require_once('mainController.php');
+require_once('controller/mainController.php');
 
 //session_start();
 ob_start();
@@ -12,10 +12,10 @@ ob_start();
 
       <h1>Connectez-vous</h1>
    
-      <form name="fo" method="post" action="">
+      <form method="post" action="index.php?action=login">
          <input type="text" name="username" placeholder="Nom d'utilisateur" /><br />
          <input type="password" name="passuser" placeholder="Mot de passe" /><br />
-         <input type="submit" name="seConnecter" value="Valider" />
+         <input type="submit" name="Valider" value="Valider" />
       </form>
       <p>Pas encore de compte ? <a href="index.php?action=pageRegister">Inscrivez-vous !</a></p>
       <p>Mot de passe oublié ? <a href="index.php?action=forgetpass">Créez un nouveau mot de passe</a></p> <!-- // forgetpass A CODER -->
@@ -23,7 +23,7 @@ ob_start();
 </main>
 
 <?php
-//header('home.php') ;
+//include 'home.php';
 $pageContent = ob_get_clean();
 require_once __DIR__.'/../view/template.php';
 
