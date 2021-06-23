@@ -3,13 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mar. 22 juin 2021 à 19:42
+-- Généré le : mer. 23 juin 2021 à 15:22
 -- Version du serveur :  5.7.32
 -- Version de PHP : 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -46,7 +44,9 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`id_user`, `nom`, `prenom`, `username`, `passuser`, `question`, `reponse`) VALUES
-(1, 'RODRIGUES', 'David', 'drodrig', 'toto', 'marque du camion', 'Ford');
+(6, 'Dada', 'Didi', 'dodo', 'b247deafa97a5122eef246b489074c5d', 'Quelle voiture', 'MG'),
+(10, 'test', 'test', 'test', '098f6bcd4621d373cade4e832627b4f6', 'Quelle voiture', 'MG'),
+(11, 'Dupont', 'Henry', 'Henry2', 'f71dbe52628a3f83a77ab494817525c6', 'Quelle voiture', 'MG');
 
 -- --------------------------------------------------------
 
@@ -130,7 +130,7 @@ ALTER TABLE `vote`
 -- AUTO_INCREMENT pour la table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `acteur`
@@ -161,7 +161,6 @@ ALTER TABLE `post`
 ALTER TABLE `vote`
   ADD CONSTRAINT `vote_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `account` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `vote_ibfk_2` FOREIGN KEY (`id_acteur`) REFERENCES `acteur` (`id_acteur`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
