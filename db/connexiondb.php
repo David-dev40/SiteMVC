@@ -16,13 +16,13 @@ try{
         printf("Echec cnx bdd : %s\n", $e->getMessage());
         die('Erreur : '.$e->getMessage());
     }
-    $requser=$dbco->query('SELECT * FROM account');
+    /*$requser=$dbco->query('SELECT * FROM account');
     
     while ($donnees = $requser->fetch())
     {   
         echo $donnees['nom'];
 
-    }
+    } */
 
 
     return $dbco;

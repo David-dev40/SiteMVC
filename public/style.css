@@ -10,7 +10,7 @@
 #header #logo{
     display: block;
     height: 140px;
-    margin-left: 50px;
+    margin-left: -550px;
 }
 
 /*#header_form #logoGBAF{
@@ -342,7 +342,7 @@ form {
     border-bottom: solid black 1px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;  
 }
 #header_form #logoGBAF {
     height: 200px;

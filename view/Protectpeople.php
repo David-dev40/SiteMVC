@@ -1,30 +1,44 @@
 <?php
-$pageTitle = $actor['Protectpeople'];
+$pageTitle = 'Protectpeople';
 $header='connect';
 ob_start()
 ?>
 
 <main>
-
+    
+    <body>
+    <?php while ($donnees = $req->fetch()) dd('test');  ?>
+        <?php $actor=$donnees['Protectpeople']; ?>
     <section id= "presentation_acteur">
-    <p><figure id="logo_page_acteur"><img src="public/img/actor_protectpeople.png" alt="actor_protectpeople"/>
+    <p><figure id="logo_page_acteur"><img src=<?$donnees['logo'] ?> alt="ProtectPeople"/>
         </figure><br />
-        <div class="description">
-    <p>Protectpeople finance la solidarité nationale.
-Nous appliquons le principe édifié par la Sécurité sociale française en 1945 : permettre à chacun de bénéficier d’une protection sociale.</p></br>
-
-<p>Chez Protectpeople, chacun cotise selon ses moyens et reçoit selon ses besoins.</p></br>
-Proectecpeople est ouvert à tous, sans considération d’âge ou d’état de santé.</p></br>
-Nous garantissons un accès aux soins et une retraite.
-Chaque année, nous collectons et répartissons 300 milliards d’euros.
-Notre mission est double :</p>
-</div>
-<div class="presentationListActeurs">
-            <ul>
-                <li><span class="li_content">social : nous garantissons la fiabilité des données sociales;</span></li>
-                <li><span class="li_content">économique : nous apportons une contribution aux activités économiques.</span></li>
-            </ul>
-</div>
+    <div class="description"> 
+    <?php echo $donnees['description']; ?>
+    </div>
+    </section>
+    
+        <div class="news">
+            <h3>
+                <? htmlspecialchars($donnees['id_user']); ?>
+                <em>le <? $post['date_creation_fr']; ?></em>
+            </h3>
+            
+            <p>
+            <? nl2br(htmlspecialchars($post['post'])); ?>
+            <br />
+            </p>
+        </div>
+        <em><a href="#">Commentaires</a></em>
+        <?
+        while($comment = $comment->fetch())
+        {
+        ?>
+            <p><strong><?= htmlspecialchars($comment['id_user']) ?></strong> le <?= $comment['date_creation_fr'] ?></p>
+            <p><?= nl2br(htmlspecialchars($comment['post'])) ?></p>
+        <?
+        }
+        ?>
+    </body>
 </main>
 
 <?php

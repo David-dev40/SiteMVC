@@ -1,6 +1,7 @@
 <?php
 $pageTitle = 'Groupement Banque Assurance Français';
 $header = 'connect';
+require_once('controller/mainController.php');
 ob_start();
 //require('mainController.php');
 if (isset($_GET['action'])) {
@@ -64,23 +65,23 @@ else {
                         <figure>
                             <img class="logo_acteur" src="<?= 'img' . DIRECTORY_SEPARATOR . $actor['logo_file']; ?>" alt="logo de l'acteur">
                         </figure>
-                        <figcaption hidden>Logo de <?= $actor['name']; ?></figcaption>
+                        <figcaption hidden>Logo de <?= $actor['acteur']; ?></figcaption>
                         <div class="description">
-                            <h3><?= $actor['name']; ?></h3>
+                            <h3><?= $actor['acteur']; ?></h3>
                             <p><?= substr($actor['description'], 0, 69) . '...'; ?></p>
                         </div>
                     </div>
 
                     <div class="votesButton">
                         <div class="homeVotes">
-                            <p><span class="fas fa-thumbs-up fa-2x"> <?php if ($likesByActor[$actor['id']] == NULL) {
+                            <p><span class="fas fa-thumbs-up fa-2x"> <?php if ($likesByActor[$actor['id_acteur']] == NULL) {
                                 echo 0;
-                            } else {echo $likesByActor[$actor['id']];} ?></span></p>
-                            <p><span class="fas fa-thumbs-down fa-2x"> <?php if ($dislikesByActor[$actor['id']] == NULL) {
+                            } else {echo $likesByActor[$actor['vote']];} ?></span></p>
+                            <p><span class="fas fa-thumbs-down fa-2x"> <?php if ($dislikesByActor[$actor['id_acteur']] == NULL) {
                                 echo 0;
-                            } else {echo $dislikesByActor[$actor['id']];} ?></span></p>
+                            } else {echo $dislikesByActor[$actor['vote']];} ?></span></p>
                         </div>
-                        <a class="button" href="index.php?action=actor&amp;id_actor=<?= $actor['id']; ?>">Lire la suite</a>
+                        <a class="button" href="index.php?action=actor&amp;id_acteur=<?= $actor['id_acteur']; ?>">Lire la suite</a>
                     </div>
                 </div>
             <?php endforeach; ?>

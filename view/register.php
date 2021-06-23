@@ -28,7 +28,7 @@ require_once('controller/mainController.php');
 
             <p><label for="reponse">Réponse à la question secrète : </br></br></label><input type="text" name="reponse" /></p>
 
-            <input type="submit" name="SEnregistrer" value="S'enregistrer" />
+            <p><input type="submit"  name ="SEnregistrer" value="S'enregistrer"/></p>
             
         </form>
     </section>
