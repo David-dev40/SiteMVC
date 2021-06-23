@@ -3,9 +3,10 @@ require_once __DIR__.'/../db/connexiondb.php';
 require_once __DIR__.'/../controller/mainController.php';
 
 
-function registerNewUser($lastname,$firstname,$username,$passuser,$question,$reponse)
+/*function registerNewUser($lastname,$firstname,$username,$passuser,$question,$reponse)
 {
    $dbco=dbconnect();
+
    $requser=$dbco->prepare('INSERT INTO account(nom, prenom, username, passuser, question, reponse) VALUES (:nom, :prenom, :username, :passuser, :question, :reponse)');
    $requser->execute(array(
       'nom'=> $lastname,
@@ -14,9 +15,9 @@ function registerNewUser($lastname,$firstname,$username,$passuser,$question,$rep
       'passuser'=> md5($passuser),
       'question'=> $question,
       'reponse'=>  $reponse
-   )); // <-
+   )); 
    
-}/*dd($_POST); */
+}*/
 
 
 /* fonction ci-dessous : ancien code */

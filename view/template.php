@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $_SESSION["prenomNom"]
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr" dir="ltr">
@@ -25,8 +30,13 @@
             <div id="user">
                 <div class="fas fa-user-tie fa-2x"></div>
                 <div id="userLink">
-                    <p><a href="index.php?action=login"><?= $_SESSION['nom']; ?> <?= $_SESSION['prenom']; ?></a></p>
+
+                    <p><a href="index.php?action=login">
+                           <?php echo $_SESSION["prenomNom"];?>
+                        </a></p>
+
                     <p id="deco"><a href="index.php?action=logout">Se déconnecter</a></p>
+
                 </div>
             </div>
         </header>
@@ -36,6 +46,9 @@
 
         <?= ($header == 'noconnect') ? $headerOut : '' ?>
         <?= ($header == 'connect') ? $headerIn : '' ?>
+
+      
+
     </header>
        <main>
 

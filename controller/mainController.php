@@ -65,32 +65,34 @@ function login()
 {
     session_start();
     if(!empty($_POST)){
-        //dd($_POST);
+        
         $username= htmlspecialchars($_POST["username"]);
         $passuser= htmlspecialchars($_POST["passuser"]);
         $passuser=md5($passuser);
         $erreur="";
-        //include_once ("db/connexiondb.php");
+        
         $dbco = dbConnect();
         $sel=$dbco->prepare("SELECT * from account where username=? and passuser=? limit 1");
         $sel->execute(array($username, $passuser));
         $tab=$sel->fetchAll();
-        //dd($tab,$username,$passuser);
+        
         if(count($tab)>0){
             $_SESSION["prenomNom"]=ucfirst(strtolower($tab[0]["prenom"])).
             " ".strtoupper($tab[0]["nom"]);
-            $_SESSION["autoriser"]="oui";
-        header("location:index.php?action=home"); // à mettre dans le Header pour affichage sur toutes les pages par le template
+            $_SESSION["autoriser"]="oui"; 
+            $_SESSION['nom']; 
+            $_SESSION['prenom'];
+            header("location:index.php?action=home"); 
         }
         else{
             $erreur="Mauvais nom d'utilisateur ou mot de passe!";
             dd($erreur);
-            // dd($_POST,$_SERVER,$_SESSION);
+            
         }
         
 
     }
-    
+   /* <p><a href="index.php?action=login"><?= $_SESSION['nom']; ?> <?= $_SESSION['prenom']; ?></a></p>*/
 
   
     require_once __DIR__.'/../view/login.php';
@@ -101,8 +103,10 @@ function logout()
 {
     session_start();
     session_destroy();
-    header("location:login.php");
+
+    header("location: index.php?action=login");
 }
+
 /*function pageValidRegister()
 {
     
@@ -182,10 +186,10 @@ function register()
   $erreur= 0;
   if(isset($_POST['SEnregistrer'])){ 
       
-        if(empty($_POST['lastname'])) {
+        if(empty($_POST['nom'])) {
             echo '<script> alert("Nom laissé vide!")</script>';
         }
-        if(empty($_POST['firstname'])) {
+        if(empty($_POST['prenom'])) {
             $erreur="Prénom laissé vide!";
         }
         if(empty($_POST['username'])) {
@@ -212,7 +216,7 @@ function register()
             $ins=$dbco->prepare('SELECT * from account where username=? limit 1');
             $ins->execute(array($username));
             $tabins=$ins->fetchAll();
-            if(count($ins)==0){
+            if(count($tabins)==0){
                 echo '<script>alert("Vous êtes enregistré !")</script>';
             }
             else{
