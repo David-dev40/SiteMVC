@@ -48,7 +48,7 @@
         </main>
        
         <footer>
-            <p><a href="index.php?action=mentionsLegales">Mentions légales</a> | <a href="#">Contact</a></p>
+            <p><a href="index.php?action=mentionsLegales">Mentions légales</a><a> | </a><a href="index.php?action=contact">Contact</a></p>
         </footer>
 </body>
 <?php //dd($_GET,$_POST,$_REQUEST);?>

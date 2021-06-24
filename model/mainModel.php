@@ -154,7 +154,7 @@ function getDislikeByActor($id_actor)
 function getLikes()
 {
    $dbco=dbConnect();
-   $listLikes = $dbco->query('SELECT COUNT(*) AS nb_likes, id_acteur FROM vote WHERE vote = 1 GROUP BY id_acteur');
+   $listLikes = $dbco->query('SELECT COUNT(*) AS vote, id_acteur FROM vote WHERE vote = 1 GROUP BY id_acteur');
    $likes = $listLikes->fetchAll();
    return $likes;
 }
@@ -215,6 +215,7 @@ function getActors()
 {
    $dbco=dbConnect();
    $listActor = $dbco->query('SELECT * FROM acteur');
+
    $actors = $listActor->fetchAll();
    return $actors;
    

@@ -386,5 +386,5 @@ function mentionsLegales()
 
 function contact()
 {
-    require_once __DIR__.'/../view/.php';
+    require_once __DIR__.'/../view/contact.php';
 }
